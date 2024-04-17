@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/temple/": {
+      "name": "/temple",
+      "lambdaFunction": "templeappfa89cf75",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/upload": {
+      "name": "/upload",
+      "lambdaFunction": "upload",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-templeapp-dev-471ea-authRole",
+      "UnauthRoleArn": "arn:aws:iam::686515175041:role/amplify-templeapp-dev-471ea-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::686515175041:role/amplify-templeapp-dev-471ea-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-templeapp-dev-471ea-deployment",
+      "UnauthRoleName": "amplify-templeapp-dev-471ea-unauthRole",
+      "StackName": "amplify-templeapp-dev-471ea",
+      "StackId": "arn:aws:cloudformation:us-east-2:686515175041:stack/amplify-templeapp-dev-471ea/50d8bcd0-fb9e-11ee-bf77-0245c8162433",
+      "AmplifyAppId": "d2mhwefecr2ywt"
+    },
+    "categories": {
+      "function": {
+        "templeappfa89cf75": {
+          "deploymentBucketName": "amplify-templeapp-dev-471ea-deployment",
+          "s3Key": "amplify-builds/templeappfa89cf75-6547307170614e397655-build.zip"
+        },
+        "upload": {
+          "deploymentBucketName": "amplify-templeapp-dev-471ea-deployment",
+          "s3Key": "amplify-builds/upload-63386657675654514c4a-build.zip"
+        }
+      },
+      "api": {
+        "templeapi": {}
+      },
+      "storage": {
+        "templebucket": {},
+        "truetemples": {
+          "tableName": "truetemples",
+          "region": "us-east-2",
+          "arn": "arn:aws:dynamodb:us-east-2:686515175041:table/truetemples",
+          "partitionKeyName": "name",
+          "partitionKeyType": "S"
+        }
+      },
+      "auth": {
+        "templeappe0e43999": {}
+      }
+    }
+  }
+}
