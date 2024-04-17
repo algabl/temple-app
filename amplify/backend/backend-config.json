@@ -9,14 +9,6 @@
           ],
           "category": "function",
           "resourceName": "templeappfa89cf75"
-        },
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "upload"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -54,32 +46,70 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    },
-    "upload": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
     }
   },
-  "hosting": {
-    "S3AndCloudFront": {
-      "providerPlugin": "awscloudformation",
-      "service": "S3AndCloudFront"
+  "hosting": {},
+  "parameters": {
+    "AMPLIFY_function_templeappfa89cf75_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "templeappfa89cf75"
+        }
+      ]
+    },
+    "AMPLIFY_function_templeappfa89cf75_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "templeappfa89cf75"
+        }
+      ]
+    },
+    "AMPLIFY_storage_truetemples_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "truetemples"
+        }
+      ]
+    },
+    "AMPLIFY_storage_truetemples_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "truetemples"
+        }
+      ]
+    },
+    "AMPLIFY_storage_truetemples_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "truetemples"
+        }
+      ]
+    },
+    "AMPLIFY_storage_truetemples_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "truetemples"
+        }
+      ]
+    },
+    "AMPLIFY_storage_truetemples_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "truetemples"
+        }
+      ]
     }
   },
   "storage": {
     "templebucket": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn",
-            "LambdaExecutionRole"
-          ],
-          "category": "function",
-          "resourceName": "upload"
-        }
-      ],
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"
     },

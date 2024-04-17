@@ -7,13 +7,6 @@
       "permissions": {
         "setting": "open"
       }
-    },
-    "/upload": {
-      "name": "/upload",
-      "lambdaFunction": "upload",
-      "permissions": {
-        "setting": "open"
-      }
     }
   }
 }

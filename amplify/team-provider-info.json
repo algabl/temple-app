@@ -15,11 +15,7 @@
       "function": {
         "templeappfa89cf75": {
           "deploymentBucketName": "amplify-templeapp-dev-471ea-deployment",
-          "s3Key": "amplify-builds/templeappfa89cf75-6547307170614e397655-build.zip"
-        },
-        "upload": {
-          "deploymentBucketName": "amplify-templeapp-dev-471ea-deployment",
-          "s3Key": "amplify-builds/upload-63386657675654514c4a-build.zip"
+          "s3Key": "amplify-builds/templeappfa89cf75-7138447a725051455058-build.zip"
         }
       },
       "api": {
