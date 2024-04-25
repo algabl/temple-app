@@ -7,42 +7,39 @@ import { CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import { getUrl } from "aws-amplify/storage";
+import { useQuery } from "react-query";
 
 const TempleCard = ({ temple }) => {
-  const [imageUrl, setImageUrl] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchImage = async () => {
-      const imageKey = temple.image_id;
-      try {
-        const response = await getUrl({ key: imageKey });
-        setImageUrl(response.url.href);
-      } catch (error) {
-        console.error("Error fetching image from S3", error);
-      }
-    };
-    
-    fetchImage();
-  }, [temple.image_id]);
-
-
-
-  const handleImageLoad = () => {
-    setLoading(false);
+  const fetchImage = async () => {
+    const imageKey = temple.image_id;
+    try {
+      const response = await getUrl({ key: imageKey });
+      return response.url.href;
+    } catch (error) {
+      console.error("Error fetching image from S3", error);
+    }
   };
 
-  return (
-    <Link to={`/temple/${temple.temple_name_id}`}>
+  const { data: imageUrl, isLoading } = useQuery(
+    ["templeImage", temple.image_id],
+    fetchImage,
+    {
+      staleTime: Infinity, // This will make the fetched data never stale
+    }
+  );
+
+  return temple ? (
+    <Link
+      to={{ pathname: `/temple/${temple.temple_name_id}`, state: { temple } }}
+    >
       <Card sx={{ maxWidth: 345 }}>
         <CardContent>
-          {loading && <CircularProgress />}
+          {isLoading && <CircularProgress />}
           {imageUrl && (
             <CardMedia
-              sx={{ height: 140, display: loading ? "none" : "block" }}
+              sx={{ height: 140, display: isLoading ? "none" : "block" }}
               component="img"
               src={imageUrl}
-              onLoad={handleImageLoad}
             />
           )}
           <Typography variant="h5" component="h2">
@@ -52,6 +49,8 @@ const TempleCard = ({ temple }) => {
         </CardContent>
       </Card>
     </Link>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
