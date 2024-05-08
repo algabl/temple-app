@@ -2,19 +2,26 @@ import "./index.css";
 
 import { Amplify } from "aws-amplify";
 import App from "./App";
+import { BreadcrumbsProvider } from "./components/BreadcrumbsContext";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
 import awsExports from "./aws-exports";
 import reportWebVitals from "./reportWebVitals";
+import theme from "./theme/theme";
 
 Amplify.configure(awsExports);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ThemeProvider theme={theme}>
+      <BreadcrumbsProvider>
+        <Router>
+          <App />
+        </Router>
+      </BreadcrumbsProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

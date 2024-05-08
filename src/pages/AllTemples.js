@@ -3,8 +3,19 @@ import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import TempleCard from "../components/TempleCard";
 import { Toolbar } from "@mui/material";
+import { useBreadcrumbs } from "../components/BreadcrumbsContext";
+import { clear } from "@testing-library/user-event/dist/clear";
 
-function AllTemples({allTemples}) {
+function AllTemples({ allTemples }) {
+  const { addBreadcrumb, hasBreadcrumb, clearBreadcrumbs } = useBreadcrumbs();
+
+  useEffect(() => {
+    if (!hasBreadcrumb("All Temples")) {
+      clearBreadcrumbs();
+      addBreadcrumb({ name: "All Temples", path: "/all-temples" });
+    }
+  }, []);
+
   return (
     <div>
       <Toolbar />

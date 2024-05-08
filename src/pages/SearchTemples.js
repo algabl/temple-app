@@ -7,6 +7,8 @@ import { InputBase } from "@mui/material";
 import TempleCard from "../components/TempleCard";
 import Toolbar from "@mui/material/Toolbar";
 import { get } from "aws-amplify/api";
+import { useBreadcrumbs } from "../components/BreadcrumbsContext";
+import { useEffect } from "react";
 
 const myAPI = "templeapi";
 const path = "/temple";
@@ -14,6 +16,15 @@ const path = "/temple";
 function SearchTemples() {
   const [temples, setTemples] = React.useState([]);
   const [input, setInput] = React.useState("");
+
+  const { addBreadcrumb, hasBreadcrumb, clearBreadcrumbs } = useBreadcrumbs();
+
+  useEffect(() => {
+    if (!hasBreadcrumb("Search Temples")) {
+      clearBreadcrumbs();
+      addBreadcrumb({ name: "Search Temples", path: "/search-temples" });
+    }
+  }, []);
 
   function handleKeyDown(e) {
     if (e.key === "Enter") {

@@ -2,7 +2,7 @@ import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import AddTemples from "./pages/AddTemples";
@@ -22,7 +22,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [allTemples, setAllTemples] = useState([]);
-
+  
   async function getAllTemples() {
     const { body } = await get({
       apiName: myAPI,
